@@ -4,10 +4,13 @@ import Footer from "../shared/Footer";
 
 const RootLayout = () => {
     return (
-        <div>
-            <Navbar></Navbar>
-            <Outlet></Outlet>
-            <Footer></Footer>
+        <div className="min-h-screen p-0 m-0">
+            <Navbar />
+            <main className="">
+                <Outlet></Outlet>
+            </main>
+
+            <Footer />
         </div>
     );
 };

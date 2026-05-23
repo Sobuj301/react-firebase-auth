@@ -1,9 +1,9 @@
 
 const Footer = () => {
     return (
-        <div className="bg-amber-400">
-            this is footer
-        </div>
+        <footer className="bg-gray-800 text-white py-4 text-center text-sm">
+            <p>&copy; {new Date().getFullYear()} MyAuthApp. All rights reserved.</p>
+        </footer>
     );
 };
 
