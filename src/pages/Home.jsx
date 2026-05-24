@@ -1,7 +1,7 @@
 
 const Home = () => {
     return (
-        <div className="h-[calc(100vh-112px)] bg-white flex flex-col justify-center items-center text-center px-6">
+        <div className="md:h-[calc(100vh-116px)] bg-white flex flex-col justify-center items-center text-center px-6">
             <h1 className="text-5xl font-extrabold text-gray-900 mb-6">
                 Welcome to <span className="text-blue-600">MyAuthApp</span>
             </h1>

@@ -1,14 +1,19 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 
 const Login = () => {
 
-    const navigate = useNavigate()
+    const location = useNavigate()
+
+    const pathName = useLocation()
+    console.log(pathName)
 
     const [error, setError] = useState('')
-    const { userLogin } = useContext(AuthContext)
+    const { userLogin} = useContext(AuthContext)
 
+
+ 
     const handleLogin = (e) => {
         e.preventDefault()
         setError('')
@@ -16,15 +21,14 @@ const Login = () => {
         const password = e.target.password.value;
         userLogin(email, password)
             .then(result => {
-             navigate('/') 
+             location(pathName.state || "/")
             })
             .catch(error => {
                 setError(error.message)
             })
-
     }
     return (
-        <div className="md:h-[calc(100vh-112px)] w-full flex justify-center items-center overflow-hidden bg-gray-50 p-4">
+        <div className="md:h-[calc(100vh-116px)] w-full flex justify-center items-center overflow-hidden bg-gray-50 p-4">
             <form onSubmit={handleLogin} className="bg-white  p-8 rounded-lg shadow-md w-full max-w-sm">
                 <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
                     Login

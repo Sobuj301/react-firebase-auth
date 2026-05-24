@@ -1,34 +1,54 @@
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
+import { Home, LayoutDashboard, LogOut, UserPlus } from "lucide-react";
 
 const Navbar = () => {
 
-    const { user } = useContext(AuthContext)
+    const { user, userSingOut } = useContext(AuthContext)
+
+    const handleSignOut = () => {
+        userSingOut()
+            .then(result => {
+                console.log(result)
+            })
+            .catch(error => {
+                // setError(error.message)
+            })
+    }
+
 
     return (
-        <nav className="bg-white shadow-lg">
+        <nav className="bg-white shadow-lg border border-slate-300">
             <div className="max-w-6xl mx-auto px-4">
-                <div className="flex justify-between items-center py-4">
+                <div className="flex justify-between items-center h-16">
 
                     {/* Logo */}
-                    <div className="font-bold text-xl text-blue-600">
+                    <div className="font-bold text-lg text-blue-600">
                         MyAuthApp
                     </div>
 
                     {/* Links */}
                     <div className="flex items-center space-x-4">
-                        <a href="/" className="text-gray-700 hover:text-blue-600">Home</a>
+                        <a href="/" className="text-gray-700 hover:text-blue-600">
+                            <Home size={20} />
+                        </a>
+
+                            <a href="/dashboard" className="text-gray-700 hover:text-blue-600">
+                                <LayoutDashboard size={20} />
+                            </a>
+                       
 
                         {user ? (
-                            // ইউজার লগইন করা থাকলে Logout বাটন দেখাবে
                             <button
-                                className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition"
+                                onClick={handleSignOut}
+                                className="text-red-500 hover:text-red-600 transition"
                             >
-                                Logout
+                                <LogOut size={20} />
                             </button>
                         ) : (
-                            // ইউজার লগইন করা না থাকলে Register বাটন দেখাবে
-                            <a href="/register" className="text-gray-700 hover:text-blue-600">Register</a>
+                            <a href="/register" className="text-gray-700 hover:text-blue-600">
+                                <UserPlus size={20} />
+                            </a>
                         )}
                     </div>
 

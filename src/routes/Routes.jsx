@@ -3,25 +3,33 @@ import Home from "../pages/Home";
 import RootLayout from "../layout/RootLayout";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
+import Dashboard from "../pages/Dashboard";
+import PrivateRoute from "./PrivateRoute";
 
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    Component:RootLayout,
-    children:[
-        {
-            index:true,
-            Component:Home,
-        },
-        {
-          path:"register",
-          Component:Register
-        },
-        {
-          path:"login",
-          Component:Login
-        }
+    Component: RootLayout,
+    children: [
+      {
+        index: true,
+        Component: Home,
+      },
+      {
+        path: "register",
+        Component: Register
+      },
+      {
+        path: "login",
+        Component: Login
+      },
+      {
+        path: "dashboard",
+        element: <PrivateRoute>
+          <Dashboard></Dashboard>
+        </PrivateRoute>
+      }
     ]
   },
 ]);

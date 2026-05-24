@@ -12,7 +12,7 @@ const RootLayout = () => {
         <div className="min-h-screen p-0 m-0">
             <Navbar />
             <main className="">
-                {loading ? <div className="md:h-[calc(100vh-112px)] flex justify-center items-center">
+                {loading ? <div className="md:h-[calc(100vh-122px)] flex justify-center items-center">
                     <span className="text-xl font-bold">Loading...</span>
                 </div> : <Outlet></Outlet>}
 
