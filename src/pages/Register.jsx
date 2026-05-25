@@ -17,7 +17,6 @@ const Register = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
 
-
         createUser(email, password)
             .then(result => {
                 Swal.fire({
@@ -25,7 +24,6 @@ const Register = () => {
                     text: "Registration successful !",
                     icon: "success"
                 });
-                setLoading(false)
                 navigate("/login")
             })
             .catch(error => {
@@ -35,7 +33,7 @@ const Register = () => {
 
     }
     return (
-       <div className="md:h-[calc(100vh-116px)] w-full flex justify-center items-center overflow-hidden bg-gray-50 p-4">
+       <div className="min-h-[calc(100vh-118px)] w-full flex justify-center items-center overflow-hidden bg-gray-50 p-4">
     <form onSubmit={handleSignUp} className="bg-white p-8 rounded-lg shadow-md w-full max-w-sm">
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
             Register

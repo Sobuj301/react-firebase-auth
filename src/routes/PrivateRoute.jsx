@@ -9,7 +9,7 @@ const PrivateRoute = ({ children }) => {
     console.log(navigate)
 
     if (loading) {
-        return <div className="md:h-[calc(100vh-122px)] flex justify-center items-center">
+        return <div className="min-h-[calc(100vh-118px)] flex justify-center items-center">
             <span className="text-xl font-bold">Loading...</span>
         </div>
     }
